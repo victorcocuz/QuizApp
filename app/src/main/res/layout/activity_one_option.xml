@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.android.quizapp.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/one_question"
+            style="@style/text_typical"
+            android:text="@string/one_question" />
+
+        <TextView
+            android:id="@+id/one_q"
+            style="@style/text_typical"
+            android:text="@string/one_q1" />
+
+        <TextView
+            style="@style/text_typical"
+            android:text="@string/q_mark" />
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/one_a1"
+            style="@style/button_answer"
+            android:text="@string/one_q1_a1" />
+
+        <RadioButton
+            android:id="@+id/one_a2"
+            style="@style/button_answer"
+            android:text="@string/one_q1_a2" />
+
+        <RadioButton
+            android:id="@+id/one_a3"
+            style="@style/button_answer"
+            android:text="@string/one_q1_a3" />
+
+        <RadioButton
+            android:id="@+id/one_a4"
+            style="@style/button_answer"
+            android:text="@string/one_q1_a4" />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button_next_question"
+            style="@style/button_complementary"
+            android:onClick="nextQuestion"
+            android:text="@string/button_next_question" />
+
+    </RelativeLayout>
+
+</LinearLayout>
