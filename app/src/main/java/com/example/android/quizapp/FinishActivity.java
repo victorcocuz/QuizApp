@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 /**
@@ -35,10 +36,14 @@ public class FinishActivity extends Activity {
         if (scoreWritten > 0) {
             writtenScore.setText("You scored\n" + scoreWritten * 20 + "\n points");
         }
-    }
 
-    public void goToMenuActivity(View view) {
-        Intent goToMenuActivity = new Intent(this, MenuActivity.class);
-        startActivity(goToMenuActivity);
+        Button buttonBackMenu = (Button) findViewById(R.id.button_back_menu);
+        buttonBackMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToMenuActivity = new Intent(FinishActivity.this, MenuActivity.class);
+                startActivity(goToMenuActivity);
+            }
+        });
     }
 }

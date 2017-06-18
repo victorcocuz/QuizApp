@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F2F2"
+    android:background="@color/colorAccent"
     android:gravity="center"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -16,7 +16,7 @@
     <TextView
         android:id="@+id/welcome"
         style="@style/button_edit"
-        android:text="@string/welcome" />
+        tools:text="Welcome!" />
 
     <TextView
         style="@style/button_edit"
@@ -25,21 +25,17 @@
     <Button
         android:id="@+id/button_multiple_choice"
         style="@style/button_typical"
-        android:onClick="goToMultipleChoice"
         android:text="@string/button_multiple_choice" />
 
     <Button
         android:id="@+id/button_one_option"
         style="@style/button_typical"
-        android:onClick="goToOneOption"
         android:text="@string/button_one_option" />
 
     <Button
         android:id="@+id/button_written_answer"
         style="@style/button_typical"
         android:layout_height="wrap_content"
-        android:onClick="goToWrittenAnswer"
         android:text="@string/button_written_answer" />
-
 
 </LinearLayout>

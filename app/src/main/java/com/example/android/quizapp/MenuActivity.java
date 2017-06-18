@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 /**
@@ -20,20 +21,32 @@ public class MenuActivity extends Activity {
         String UserName = UserNameFromMainActivity.getExtras().getString("UserName");
         TextView UserNameMenuActivity = (TextView) findViewById(R.id.welcome);
         UserNameMenuActivity.setText("Welcome " + UserName + "!");
-    }
 
-    public void goToMultipleChoice(View view) {
-        Intent goToMultipleChoice = new Intent(this, MultipleChoiceActivity.class);
-        startActivity(goToMultipleChoice);
-    }
+        Button buttonMultipleChoice = (Button) findViewById(R.id.button_multiple_choice);
+        buttonMultipleChoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToMultipleChoice = new Intent(MenuActivity.this, MultipleChoiceActivity.class);
+                startActivity(goToMultipleChoice);
+            }
+        });
 
-    public void goToOneOption(View view) {
-        Intent goToOneOption = new Intent(this, OneOptionActivity.class);
-        startActivity(goToOneOption);
-    }
+        Button buttonOneOption = (Button) findViewById(R.id.button_one_option);
+        buttonOneOption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToOneOption = new Intent(MenuActivity.this, OneOptionActivity.class);
+                startActivity(goToOneOption);
+            }
+        });
 
-    public void goToWrittenAnswer(View view) {
-        Intent goToWrittenAnswer = new Intent(this, WrittenAnswerActivity.class);
-        startActivity(goToWrittenAnswer);
+        Button buttonWrittenActivity = (Button) findViewById(R.id.button_written_answer);
+        buttonWrittenActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToWrittenAnswer = new Intent(MenuActivity.this, WrittenAnswerActivity.class);
+                startActivity(goToWrittenAnswer);
+            }
+        });
     }
 }

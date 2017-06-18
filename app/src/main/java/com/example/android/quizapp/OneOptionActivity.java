@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -28,60 +29,64 @@ public class OneOptionActivity extends Activity {
         OneA2 = (RadioButton) findViewById(R.id.one_a2);
         OneA3 = (RadioButton) findViewById(R.id.one_a3);
         OneA4 = (RadioButton) findViewById(R.id.one_a4);
-    }
 
-    public void nextQuestion(View view) {
-        if (i == 0) {
-            if (OneA1.isChecked()) {
-                score++;
+        Button buttonNextQuestion = (Button) findViewById(R.id.button_next_question);
+        buttonNextQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (i == 0) {
+                    if (OneA1.isChecked()) {
+                        score++;
+                    }
+                    OneQ.setText(R.string.one_q2);
+                    OneA1.setText(R.string.one_q2_a1);
+                    OneA2.setText(R.string.one_q2_a2);
+                    OneA3.setText(R.string.one_q2_a3);
+                    OneA4.setText(R.string.one_q2_a4);
+                }
+                if (i == 1) {
+                    if (OneA3.isChecked()) {
+                        score++;
+                    }
+                    OneQ.setText(R.string.one_q3);
+                    OneA1.setText(R.string.one_q3_a1);
+                    OneA2.setText(R.string.one_q3_a2);
+                    OneA3.setText(R.string.one_q3_a3);
+                    OneA4.setText(R.string.one_q3_a4);
+                }
+                if (i == 2) {
+                    if (OneA4.isChecked()) {
+                        score++;
+                    }
+                    OneQ.setText(R.string.one_q4);
+                    OneA1.setText(R.string.one_q4_a1);
+                    OneA2.setText(R.string.one_q4_a2);
+                    OneA3.setText(R.string.one_q4_a3);
+                    OneA4.setText(R.string.one_q4_a4);
+                }
+                if (i == 3) {
+                    if (OneA2.isChecked()) {
+                        score++;
+                    }
+                    OneQ.setText(R.string.one_q5);
+                    OneA1.setText(R.string.one_q5_a1);
+                    OneA2.setText(R.string.one_q5_a2);
+                    OneA3.setText(R.string.one_q5_a3);
+                    OneA4.setText(R.string.one_q5_a4);
+                }
+                if (i == 4) {
+                    if (OneA4.isChecked()) {
+                        score++;
+                    }
+                    Intent goToFinishActivity = new Intent(OneOptionActivity.this, FinishActivity.class);
+                    goToFinishActivity.putExtra("oneScore", score);
+                    startActivity(goToFinishActivity);
+                    score = 0;
+                }
+                i++;
+                resetRadioBox();
             }
-            OneQ.setText(R.string.one_q2);
-            OneA1.setText(R.string.one_q2_a1);
-            OneA2.setText(R.string.one_q2_a2);
-            OneA3.setText(R.string.one_q2_a3);
-            OneA4.setText(R.string.one_q2_a4);
-        }
-        if (i == 1) {
-            if (OneA3.isChecked()) {
-                score++;
-            }
-            OneQ.setText(R.string.one_q3);
-            OneA1.setText(R.string.one_q3_a1);
-            OneA2.setText(R.string.one_q3_a2);
-            OneA3.setText(R.string.one_q3_a3);
-            OneA4.setText(R.string.one_q3_a4);
-        }
-        if (i == 2) {
-            if (OneA4.isChecked()) {
-                score++;
-            }
-            OneQ.setText(R.string.one_q4);
-            OneA1.setText(R.string.one_q4_a1);
-            OneA2.setText(R.string.one_q4_a2);
-            OneA3.setText(R.string.one_q4_a3);
-            OneA4.setText(R.string.one_q4_a4);
-        }
-        if (i == 3) {
-            if (OneA2.isChecked()) {
-                score++;
-            }
-            OneQ.setText(R.string.one_q5);
-            OneA1.setText(R.string.one_q5_a1);
-            OneA2.setText(R.string.one_q5_a2);
-            OneA3.setText(R.string.one_q5_a3);
-            OneA4.setText(R.string.one_q5_a4);
-        }
-        if (i == 4) {
-            if (OneA4.isChecked()) {
-                score++;
-            }
-            Intent goToFinishActivity = new Intent(this, FinishActivity.class);
-            goToFinishActivity.putExtra("oneScore", score);
-            startActivity(goToFinishActivity);
-            score = 0;
-        }
-        i++;
-        resetRadioBox();
+        });
     }
 
     public void resetRadioBox() {
