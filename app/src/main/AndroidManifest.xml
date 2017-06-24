@@ -18,22 +18,27 @@
         </activity>
         <activity
             android:name=".MenuActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_menu"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".MultipleChoiceActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_multiple"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".OneOptionActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_one"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".WrittenAnswerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_written"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".FinishActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_finish"
             android:theme="@style/AppTheme" />
     </application>

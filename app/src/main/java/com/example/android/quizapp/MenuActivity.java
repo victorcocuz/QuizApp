@@ -19,9 +19,11 @@ public class MenuActivity extends Activity {
         setContentView(R.layout.activity_menu);
 
         Intent UserNameFromMainActivity = getIntent();
-        String UserName = UserNameFromMainActivity.getExtras().getString("UserName");
-        TextView UserNameMenuActivity = (TextView) findViewById(R.id.welcome);
-        UserNameMenuActivity.setText("Welcome " + UserName + "!");
+        if (UserNameFromMainActivity.getExtras() != null) {
+            String UserName = UserNameFromMainActivity.getExtras().getString("UserName");
+            TextView UserNameMenuActivity = (TextView) findViewById(R.id.welcome);
+            UserNameMenuActivity.setText("Welcome " + UserName + "!");
+        }
 
         Button buttonMultipleChoice = (Button) findViewById(R.id.button_multiple_choice);
         buttonMultipleChoice.setOnClickListener(new View.OnClickListener() {

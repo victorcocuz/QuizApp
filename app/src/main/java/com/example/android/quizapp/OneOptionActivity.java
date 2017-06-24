@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 
@@ -29,6 +30,7 @@ public class OneOptionActivity extends Activity {
         OneA2 = (RadioButton) findViewById(R.id.one_a2);
         OneA3 = (RadioButton) findViewById(R.id.one_a3);
         OneA4 = (RadioButton) findViewById(R.id.one_a4);
+        final RadioGroup rg = (RadioGroup) findViewById(R.id.one_group);
 
         Button buttonNextQuestion = (Button) findViewById(R.id.button_next_question);
         buttonNextQuestion.setOnClickListener(new View.OnClickListener() {
@@ -84,15 +86,8 @@ public class OneOptionActivity extends Activity {
                     finish();
                 }
                 i++;
-                resetRadioBox();
+                rg.clearCheck();
             }
         });
-    }
-
-    public void resetRadioBox() {
-        OneA1.setChecked(false);
-        OneA2.setChecked(false);
-        OneA3.setChecked(false);
-        OneA4.setChecked(false);
     }
 }

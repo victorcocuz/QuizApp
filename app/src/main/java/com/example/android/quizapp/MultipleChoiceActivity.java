@@ -15,7 +15,7 @@ import static com.example.android.quizapp.R.id.multiple_a1;
  */
 
 public class MultipleChoiceActivity extends Activity {
-    int i = 0, score = 20;
+    int i = 0, score = 0;
     TextView multipleQ;
     CheckBox multipleA1, multipleA2, multipleA3, multipleA4;
 
@@ -34,16 +34,8 @@ public class MultipleChoiceActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (i == 0) {
-                    if (multipleA1.isChecked()) {
-                        score--;
-                    }
-                    if (!multipleA2.isChecked()) {
-                        score--;
-                    }
-                    if (multipleA3.isChecked()) {
-                        score--;
-                    } else if (multipleA4.isChecked()) {
-                        score--;
+                    if (!multipleA1.isChecked() && multipleA2.isChecked() && !multipleA3.isChecked() && !multipleA4.isChecked()) {
+                        score++;
                     }
                     multipleQ.setText(R.string.multiple_q2);
                     multipleA1.setText(R.string.multiple_q2_a1);
@@ -52,16 +44,8 @@ public class MultipleChoiceActivity extends Activity {
                     multipleA4.setText(R.string.multiple_q2_a4);
                 }
                 if (i == 1) {
-                    if (!multipleA1.isChecked()) {
-                        score--;
-                    }
-                    if (multipleA2.isChecked()) {
-                        score--;
-                    }
-                    if (multipleA3.isChecked()) {
-                        score--;
-                    } else if (!multipleA4.isChecked()) {
-                        score--;
+                    if (multipleA1.isChecked() && !multipleA2.isChecked() && !multipleA3.isChecked() && multipleA4.isChecked()) {
+                        score++;
                     }
                     multipleQ.setText(R.string.multiple_q3);
                     multipleA1.setText(R.string.multiple_q3_a1);
@@ -70,16 +54,8 @@ public class MultipleChoiceActivity extends Activity {
                     multipleA4.setText(R.string.multiple_q3_a4);
                 }
                 if (i == 2) {
-                    if (!multipleA1.isChecked()) {
-                        score--;
-                    }
-                    if (!multipleA2.isChecked()) {
-                        score--;
-                    }
-                    if (!multipleA3.isChecked()) {
-                        score--;
-                    } else if (multipleA4.isChecked()) {
-                        score--;
+                    if (multipleA1.isChecked() && multipleA2.isChecked() && multipleA3.isChecked() && !multipleA4.isChecked()) {
+                        score++;
                     }
                     multipleQ.setText(R.string.multiple_q4);
                     multipleA1.setText(R.string.multiple_q4_a1);
@@ -88,16 +64,8 @@ public class MultipleChoiceActivity extends Activity {
                     multipleA4.setText(R.string.multiple_q4_a4);
                 }
                 if (i == 3) {
-                    if (multipleA1.isChecked()) {
-                        score--;
-                    }
-                    if (!multipleA2.isChecked()) {
-                        score--;
-                    }
-                    if (multipleA3.isChecked()) {
-                        score--;
-                    } else if (!multipleA4.isChecked()) {
-                        score--;
+                    if (!multipleA1.isChecked() && multipleA2.isChecked() && !multipleA3.isChecked() && !multipleA4.isChecked()) {
+                        score++;
                     }
                     multipleQ.setText(R.string.multiple_q5);
                     multipleA1.setText(R.string.multiple_q5_a1);
@@ -105,20 +73,11 @@ public class MultipleChoiceActivity extends Activity {
                     multipleA3.setText(R.string.multiple_q5_a3);
                     multipleA4.setText(R.string.multiple_q5_a4);
                 } else if (i == 4) {
-                    if (!multipleA1.isChecked()) {
-                        score--;
+                    if (multipleA1.isChecked() && !multipleA2.isChecked() && multipleA3.isChecked() && !multipleA4.isChecked()) {
+                        score++;
                     }
-                    if (multipleA2.isChecked()) {
-                        score--;
-                    }
-                    if (!multipleA3.isChecked()) {
-                        score--;
-                    } else if (multipleA4.isChecked()) {
-                        score--;
-                    }
-
                     Intent returnIntent = new Intent();
-                    returnIntent.putExtra("result", score * 5);
+                    returnIntent.putExtra("result", score * 20);
                     setResult(Activity.RESULT_OK, returnIntent);
                     score = 0;
                     finish();
