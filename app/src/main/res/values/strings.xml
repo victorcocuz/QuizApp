@@ -79,6 +79,7 @@
     <string name="button_back_menu">Go back to main menu</string>
     <string name="type_answer">Type answer</string>
     <string name="congratulations">Congratulations</string>
+    <string name="boo">Boo</string>
     <string name="final_score">Final score</string>
     <string name="welcome">Please choose from below:</string>
     <string name="button_next_question">Next question</string>

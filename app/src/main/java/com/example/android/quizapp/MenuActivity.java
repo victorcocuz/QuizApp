@@ -12,6 +12,7 @@ import android.widget.TextView;
  */
 
 public class MenuActivity extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,7 @@ public class MenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent goToMultipleChoice = new Intent(MenuActivity.this, MultipleChoiceActivity.class);
-                startActivity(goToMultipleChoice);
+                startActivityForResult(goToMultipleChoice, 1);
             }
         });
 
@@ -36,7 +37,7 @@ public class MenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent goToOneOption = new Intent(MenuActivity.this, OneOptionActivity.class);
-                startActivity(goToOneOption);
+                startActivityForResult(goToOneOption, 1);
             }
         });
 
@@ -45,8 +46,21 @@ public class MenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent goToWrittenAnswer = new Intent(MenuActivity.this, WrittenAnswerActivity.class);
-                startActivity(goToWrittenAnswer);
+                startActivityForResult(goToWrittenAnswer, 1);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+                int result = data.getExtras().getInt("result");
+                Intent goToFinishActivity = new Intent(MenuActivity.this, FinishActivity.class);
+                goToFinishActivity.putExtra("score", result);
+                startActivity(goToFinishActivity);
+            }
+        }
     }
 }

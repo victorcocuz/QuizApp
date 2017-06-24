@@ -73,15 +73,15 @@ public class OneOptionActivity extends Activity {
                     OneA2.setText(R.string.one_q5_a2);
                     OneA3.setText(R.string.one_q5_a3);
                     OneA4.setText(R.string.one_q5_a4);
-                }
-                if (i == 4) {
+                } else if (i == 4) {
                     if (OneA4.isChecked()) {
                         score++;
                     }
-                    Intent goToFinishActivity = new Intent(OneOptionActivity.this, FinishActivity.class);
-                    goToFinishActivity.putExtra("oneScore", score);
-                    startActivity(goToFinishActivity);
+                    Intent returnIntent = new Intent();
+                    returnIntent.putExtra("result", score * 20);
+                    setResult(Activity.RESULT_OK, returnIntent);
                     score = 0;
+                    finish();
                 }
                 i++;
                 resetRadioBox();

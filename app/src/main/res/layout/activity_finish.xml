@@ -18,7 +18,7 @@
         style="@style/button_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/congratulations"/>
+        tools:text="@string/congratulations" />
 
     <TextView
         android:id="@+id/final_score"

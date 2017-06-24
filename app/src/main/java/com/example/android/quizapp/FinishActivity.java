@@ -6,36 +6,33 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by victo on 4/9/2017.
  */
 
 public class FinishActivity extends Activity {
+
+    int score = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish);
 
-        Intent getScoreFromMultipleChoiceActivity = getIntent();
-        int scoreMultiple = getScoreFromMultipleChoiceActivity.getExtras().getInt("multipleScore");
-        TextView multipleScore = (TextView) findViewById(R.id.final_score);
-        if (scoreMultiple > 0) {
-            multipleScore.setText("You scored\n" + scoreMultiple * 5 + "\n points");
-        }
+        score = getIntent().getExtras().getInt("score");
 
-        Intent getScoreFromOneActivity = getIntent();
-        int scoreOne = getScoreFromOneActivity.getExtras().getInt("oneScore");
-        TextView oneScore = (TextView) findViewById(R.id.final_score);
-        if (scoreOne > 0) {
-            oneScore.setText("You scored\n" + scoreOne * 20 + "\n points");
+        TextView congratulationsView = (TextView) findViewById(R.id.congratulations);
+        if (score == 0) {
+            congratulationsView.setText(R.string.boo);
+        } else {
+            congratulationsView.setText(R.string.congratulations);
         }
-        Intent getScoreFromWrittenActivity = getIntent();
-        int scoreWritten = getScoreFromWrittenActivity.getExtras().getInt("writtenScore");
-        TextView writtenScore = (TextView) findViewById(R.id.final_score);
-        if (scoreWritten > 0) {
-            writtenScore.setText("You scored\n" + scoreWritten * 20 + "\n points");
-        }
+        TextView scoreView = (TextView) findViewById(R.id.final_score);
+
+        scoreView.setText("You scored " + score + " points");
+        Toast.makeText(this, "You scored " + score + " points", Toast.LENGTH_SHORT).show();
 
         Button buttonBackMenu = (Button) findViewById(R.id.button_back_menu);
         buttonBackMenu.setOnClickListener(new View.OnClickListener() {

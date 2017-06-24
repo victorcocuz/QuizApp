@@ -66,16 +66,16 @@ public class WrittenAnswerActivity extends Activity {
                     }
                     writtenQ.setText(R.string.written_q5);
                     writtenImage.setImageResource(R.drawable.capital_doha);
-                }
-
-                if (i == 4) {
+                } else if (i == 4) {
                     TextView answer = (TextView) findViewById(R.id.written_answer);
                     if (answer.getText().toString().equals("Doha")) {
                         score++;
                     }
-                    Intent goToFinishActivity = new Intent(WrittenAnswerActivity.this, FinishActivity.class);
-                    goToFinishActivity.putExtra("writtenScore", score);
-                    startActivity(goToFinishActivity);
+                    Intent returnIntent = new Intent();
+                    returnIntent.putExtra("result", score * 20);
+                    setResult(Activity.RESULT_OK, returnIntent);
+                    score = 0;
+                    finish();
                 }
 
                 i++;

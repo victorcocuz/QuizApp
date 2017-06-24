@@ -16,7 +16,7 @@
     <EditText
         android:id="@+id/user_name"
         style="@style/button_edit"
-        android:hint="@string/name_hint"/>
+        android:hint="@string/name_hint" />
 
     <Button
         android:id="@+id/button_start"

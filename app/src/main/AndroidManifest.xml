@@ -8,28 +8,34 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuActivity"
+        <activity
+            android:name=".MenuActivity"
             android:label="@string/app_menu"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".MultipleChoiceActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MultipleChoiceActivity"
             android:label="@string/app_multiple"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".OneOptionActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".OneOptionActivity"
             android:label="@string/app_one"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".WrittenAnswerActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".WrittenAnswerActivity"
             android:label="@string/app_written"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".FinishActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".FinishActivity"
             android:label="@string/app_finish"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

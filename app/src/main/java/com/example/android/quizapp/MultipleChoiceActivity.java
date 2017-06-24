@@ -42,8 +42,7 @@ public class MultipleChoiceActivity extends Activity {
                     }
                     if (multipleA3.isChecked()) {
                         score--;
-                    }
-                    if (multipleA4.isChecked()) {
+                    } else if (multipleA4.isChecked()) {
                         score--;
                     }
                     multipleQ.setText(R.string.multiple_q2);
@@ -61,8 +60,7 @@ public class MultipleChoiceActivity extends Activity {
                     }
                     if (multipleA3.isChecked()) {
                         score--;
-                    }
-                    if (!multipleA4.isChecked()) {
+                    } else if (!multipleA4.isChecked()) {
                         score--;
                     }
                     multipleQ.setText(R.string.multiple_q3);
@@ -80,8 +78,7 @@ public class MultipleChoiceActivity extends Activity {
                     }
                     if (!multipleA3.isChecked()) {
                         score--;
-                    }
-                    if (multipleA4.isChecked()) {
+                    } else if (multipleA4.isChecked()) {
                         score--;
                     }
                     multipleQ.setText(R.string.multiple_q4);
@@ -99,8 +96,7 @@ public class MultipleChoiceActivity extends Activity {
                     }
                     if (multipleA3.isChecked()) {
                         score--;
-                    }
-                    if (!multipleA4.isChecked()) {
+                    } else if (!multipleA4.isChecked()) {
                         score--;
                     }
                     multipleQ.setText(R.string.multiple_q5);
@@ -108,9 +104,7 @@ public class MultipleChoiceActivity extends Activity {
                     multipleA2.setText(R.string.multiple_q5_a2);
                     multipleA3.setText(R.string.multiple_q5_a3);
                     multipleA4.setText(R.string.multiple_q5_a4);
-                }
-
-                if (i == 4) {
+                } else if (i == 4) {
                     if (!multipleA1.isChecked()) {
                         score--;
                     }
@@ -119,14 +113,15 @@ public class MultipleChoiceActivity extends Activity {
                     }
                     if (!multipleA3.isChecked()) {
                         score--;
-                    }
-                    if (multipleA4.isChecked()) {
+                    } else if (multipleA4.isChecked()) {
                         score--;
                     }
-                    Intent goToFinishActivity = new Intent(MultipleChoiceActivity.this, FinishActivity.class);
-                    goToFinishActivity.putExtra("multipleScore", score);
-                    startActivity(goToFinishActivity);
+
+                    Intent returnIntent = new Intent();
+                    returnIntent.putExtra("result", score * 5);
+                    setResult(Activity.RESULT_OK, returnIntent);
                     score = 0;
+                    finish();
                 }
                 i++;
                 resetCheckbox();
